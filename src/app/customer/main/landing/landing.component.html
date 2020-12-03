@@ -1,8 +1,9 @@
-<section class="sectionone">
+<section class="sectionone mt-5">
   <div class="row" style="width:100%;">
     <div class="col-sm-6" style="padding-left:6%;">
       <h1 class="h1one">Shopping Made<span class="spanone"> Easy</span> </h1>
-      <p class="pone">We help you shop for items with ease and from the comfort of your home. Items are delivered to your doorstep.</p>
+      <p class="pone">We help you shop for items with ease and from the comfort of your home. Items are delivered to
+        your doorstep.</p>
       <button class="btn1">SHOP NOW</button>
     </div>
     <div class="col-sm-6">
@@ -14,38 +15,38 @@
 
 <section class="sectiontwo">
   <div class="container">
-  <div class="row row1" style="width:100%;">
-    <div class="col-4">
-    <div class="row" style="width:100%;">
-      <div class="col-3">
-        <img src="assets/images/fast-delivery (1) 1.png" class="img2">
-      </div>
-      <div class="col-9">
-        <h6 class="h3two">Fast Delivery</h6>
-      </div>
-    </div>
-    </div>
-    <div class="col-4">
-      <div class="row" style="width:100%;">
-        <div class="col-3">
-          <img src="assets/images/credit-card (1) 1.png" class="img2">
-        </div>
-        <div class="col-9">
-          <h6 class="h3two">Secure Payment</h6>
+    <div class="row row1" style="width:100%;">
+      <div class="col-4">
+        <div class="row" style="width:100%;">
+          <div class="col-3">
+            <img src="assets/images/fast-delivery (1) 1.png" class="img2">
+          </div>
+          <div class="col-9">
+            <h6 class="h3two">Fast Delivery</h6>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-4">
-      <div class="row" style="width:100%;">
-        <div class="col-3">
-          <img src="assets/images/support 1.png" class="img2">
+      <div class="col-4">
+        <div class="row" style="width:100%;">
+          <div class="col-3">
+            <img src="assets/images/credit-card (1) 1.png" class="img2">
+          </div>
+          <div class="col-9">
+            <h6 class="h3two">Secure Payment</h6>
+          </div>
         </div>
-        <div class="col-9">
-          <h6 class="h3two">Online Support</h6>
+      </div>
+      <div class="col-4">
+        <div class="row" style="width:100%;">
+          <div class="col-3">
+            <img src="assets/images/support 1.png" class="img2">
+          </div>
+          <div class="col-9">
+            <h6 class="h3two">Online Support</h6>
+          </div>
         </div>
       </div>
     </div>
-  </div>
   </div>
 </section>
 
@@ -53,111 +54,111 @@
 <section class="smallsectiontwo">
   <div class="row" style="width:100%;">
     <div class="col-6">
-    <div class="row" style="width:100%;margin-left:9%;">
+      <div class="row" style="width:100%;margin-left:9%;">
         <div class="col-3">
           <img src="assets/images/fast-delivery (1) 1.png" class="smallimg2">
         </div>
         <div class="col-9">
           <h6 class="smallh3two">Fast Delivery</h6>
-         </div>
-         </div> 
-   </div>
+        </div>
+      </div>
+    </div>
 
 
     <div class="col-6">
       <div class="row" style="width:100%; margin-left:-7%;">
         <div class="col-3">
-          <img src="assets/images/credit-card (1) 1.png"  class="smallimg2">
+          <img src="assets/images/credit-card (1) 1.png" class="smallimg2">
         </div>
         <div class="col-9">
           <h6 class="smallh3twoone">Secure Payment</h6>
         </div>
 
-      </div> 
+      </div>
     </div>
-    </div>
+  </div>
 
-    <div class="row" style="width:100%;">
-      <div class="col-12">
-        <div class="row" style="width:100%;margin-top:2%;">
-          <div class="col-2">
-            <img src="assets/images/support 1.png" class="smallimg21">
-          </div>
-          <div class="col-10">
-            <h6 class="smallh3two" style="margin-left:40%">Online Support</h6>
-          </div>
-          </div>
+  <div class="row" style="width:100%;">
+    <div class="col-12">
+      <div class="row" style="width:100%;margin-top:2%;">
+        <div class="col-2">
+          <img src="assets/images/support 1.png" class="smallimg21">
+        </div>
+        <div class="col-10">
+          <h6 class="smallh3two" style="margin-left:40%">Online Support</h6>
         </div>
       </div>
+    </div>
+  </div>
 
 
-     
+
 </section>
 
 
 <section class="three">
   <div class="container">
-  <h5 class="h5one">Featured Products</h5>
-  <h6 class="h6one">Clothes</h6>
-  <div class="row" style="margin-top:3%;width:100%;">
-    <div class="col-4 btnimg">
-      <img src="assets/images/Rectangle 4.png" class="img3">
-      <button class="btn2">SHOP NOW</button>
+    <h5 class="h5one">Featured Products</h5>
+    <h6 class="h6one">{{category1?.name}}</h6>
+    <div class="row" style="margin-top:3%;width:100%;">
+        <div class="col-4 btnimg">
+          <img [src]="productCat1?.mainImage" class="img3">
+          <button class="btn2">SHOP NOW</button>
+        </div>
+      <div class="col-4" *ngFor="let product of landingCategories[category1?.name]?.slice(1)">
+        <img [src]="product?.mainImage" class="img4">
+        <h6 class="h6two">{{product?.name}}r</h6>
+        <h6 class="h6three">{{product?.price}}</h6>
+        <button class="btn3">ADD TO CART</button>
+      </div>
+      <!-- <div class="col-4">
+        <img src="assets/images/Rectangle 7.png" class="img4">
+        <h6 class="h6two">Next Crop Top</h6>
+        <h6 class="h6three">N2,000</h6>
+        <button class="btn3">ADD TO CART</button>
+      </div> -->
     </div>
-    <div class="col-4">
-      <img src="/assets/images/Rectangle 6.png" class="img4">
-      <h6 class="h6two">Adidas Sweater</h6>
-      <h6 class="h6three">N4,000</h6>
-      <button class="btn3">ADD TO CART</button>
-    </div>
-    <div class="col-4">
-      <img src="assets/images/Rectangle 7.png" class="img4">
-      <h6 class="h6two">Next Crop Top</h6>
-      <h6 class="h6three">N2,000</h6>
-      <button class="btn3">ADD TO CART</button>
-    </div>
-  </div>
 
-  <h6 class="h6four">Shoes</h6>
-  <div class="row" style="margin-top:1%;width:100%;">
-    <div class="col-4">
-      <img src="assets/images/Rectangle 12.png" class="img4">
-      <h6 class="h6two">Pink Heels</h6>
-      <h6 class="h6three">N8,000</h6>
-      <button class="btn3">ADD TO CART</button>
+    <h6 class="h6four">{{category2?.name}}</h6>
+    <div class="row" style="margin-top:1%;width:100%;">
+      <div class="col-4" *ngFor="let product of landingCategories[category2?.name]?.slice(0,2)">
+        <img [src]="product?.mainImage" class="img4">
+        <h6 class="h6two">{{product?.name}}r</h6>
+        <h6 class="h6three">{{product?.price}}</h6>
+        <button class="btn3">ADD TO CART</button>
+      </div>
+      <!-- <div class="col-4">
+        <img src="assets/images/Rectangle 13.png" class="img4">
+        <h6 class="h6two">Jordans 1 Retro</h6>
+        <h6 class="h6three">N1,5000</h6>
+        <button class="btn3">ADD TO CART</button>
+      </div> -->
+      <div class="col-4 btnimg">
+        <img [src]="productCat2?.mainImage" [alt]="productCat2?.name" class="img3">
+        <button class="btn2">SHOP NOW</button>
+      </div>
     </div>
-    <div class="col-4">
-      <img src="assets/images/Rectangle 13.png" class="img4">
-      <h6 class="h6two">Jordans 1 Retro</h6>
-      <h6 class="h6three">N1,5000</h6>
-      <button class="btn3">ADD TO CART</button>
-    </div>
-    <div class="col-4 btnimg">
-      <img src="assets/images/Rectangle 10.png" class="img3">
-      <button class="btn2">SHOP NOW</button>
-    </div>
-  </div>
 
-  <h6 class="h6five">Other Products</h6>
-  <div class="row" style="margin-top:1%;width:100%;">
-    <div class="col-4 btnimg">
-      <img src="assets/images/Rectangle 16.png" class="img3">
-      <button class="btn2">SHOP NOW</button>
-    </div>
-    <div class="col-4">
-      <img src="assets/images/Rectangle 17.png" class="img4">
-      <h6 class="h6two">Wristwatch</h6>
-      <h6 class="h6three">N2,200</h6>
-      <button class="btn3">ADD TO CART</button>
-    </div>
-    <div class="col-4">
-      <img src="assets/images/Rectangle 18.png" class="img4">
-      <h6 class="h6two">Powerbank</h6>
-      <h6 class="h6three">N6,000</h6>
-      <button class="btn3">ADD TO CART</button>
+    <h6 class="h6five">Other Products</h6>
+    <div class="row" style="margin-top:1%;width:100%;">
+      <div class="col-4 btnimg" *ngFor="let product of otherProducts">
+        <img [src]="productCat3?.mainImage" class="img3">
+        <button class="btn2">SHOP NOW</button>
+      </div>
+      <div class="col-4" *ngFor="let product of otherProducts?.slice(1)">
+        <img [src]="product?.mainImage" class="img4">
+        <h6 class="h6two">{{product?.name}}</h6>
+        <h6 class="h6three">{{product?.price}}</h6>
+        <button class="btn3">ADD TO CART</button>
+      </div>
+      <!-- <div class="col-4">
+        <img src="assets/images/Rectangle 18.png" class="img4">
+        <h6 class="h6two">Powerbank</h6>
+        <h6 class="h6three">N6,000</h6>
+        <button class="btn3">ADD TO CART</button>
+      </div> -->
     </div>
   </div>
-</div>
 </section>
 
 <section class="smallthree">
@@ -166,12 +167,12 @@
     <h6 class="h6six">Clothes</h6>
     <img src="assets/images/Rectangle 41.png" class="img7">
     <button class="btn5">SHOP NOW</button>
-    <div class="row"  style="width:100%;">
+    <div class="row" style="width:100%;">
       <div class="col-6">
         <img src="assets/images/Rectangle 61.png" class="img8">
         <h6 class="h6seven">Adidas Sweater</h6>
-      <h6 class="h6eight">N4,000</h6>
-      <button class="btn6">ADD TO CART</button>
+        <h6 class="h6eight">N4,000</h6>
+        <button class="btn6">ADD TO CART</button>
       </div>
       <div class="col-6">
         <img src="assets/images/Rectangle 71.png" class="img9">
@@ -184,12 +185,12 @@
     <h6 class="h6nine">Shoes</h6>
     <img src="assets/images/Rectangle 111.png" class="img7">
     <button class="btn5">SHOP NOW</button>
-    <div class="row"  style="width:100%;">
+    <div class="row" style="width:100%;">
       <div class="col-6">
         <img src="assets/images/Rectangle 151.png" class="img8">
         <h6 class="h6seven">Pink Heels</h6>
-      <h6 class="h6eight">N8,000</h6>
-      <button class="btn6">ADD TO CART</button>
+        <h6 class="h6eight">N8,000</h6>
+        <button class="btn6">ADD TO CART</button>
       </div>
       <div class="col-6">
         <img src="assets/images/Rectangle 161.png" class="img9">
@@ -202,12 +203,12 @@
     <h6 class="h6nine">Other Products</h6>
     <img src="assets/images/Rectangle 171.png" class="img7">
     <button class="btn5">SHOP NOW</button>
-    <div class="row"  style="width:100%;">
+    <div class="row" style="width:100%;">
       <div class="col-6">
         <img src="assets/images/Rectangle 211.png" class="img8">
         <h6 class="h6seven">Wristwatch</h6>
-      <h6 class="h6eight">N2,200</h6>
-      <button class="btn6">ADD TO CART</button>
+        <h6 class="h6eight">N2,200</h6>
+        <button class="btn6">ADD TO CART</button>
       </div>
       <div class="col-6">
         <img src="assets/images/Rectangle 221.png" class="img9">
@@ -225,8 +226,8 @@
       <img src="assets/images/shoe.png" class="img5">
     </div>
     <div class="col-6">
-    <h4 class="h4one">Get 10% Discount on First Order</h4>
-    <button class="btn4">SHOP NOW</button>
+      <h4 class="h4one">Get 10% Discount on First Order</h4>
+      <button class="btn4">SHOP NOW</button>
     </div>
     <div class="col-3">
       <img src="assets/images/shirt.png" class="img6">
@@ -240,14 +241,11 @@
       <img src="assets/images/shoe1.png" class="img10">
     </div>
     <div class="col-6">
-    <h4 class="h4two">Get 10% Discount on First Order</h4>
-    <button class="btn8">SHOP NOW</button>
+      <h4 class="h4two">Get 10% Discount on First Order</h4>
+      <button class="btn8">SHOP NOW</button>
     </div>
     <div class="col-3">
       <img src="assets/images/shirt(1).png" class="img11">
     </div>
   </div>
 </section>
-
-  
-    

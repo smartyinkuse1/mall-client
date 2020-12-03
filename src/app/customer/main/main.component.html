@@ -1,20 +1,30 @@
 
-    <div class="firstnav" style="width:100%;">
+    <div class="firstnav fixed-top" style="width:100%;">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav all1">
-              <a class="nav-item nav-link two" href="#">Home</a>
-              <a class="nav-item nav-link two" href="#">About</a>
-              <a class="nav-item nav-link two" href="#">ShopProducts</a>
+              <a class="nav-item nav-link two" routerLink="/customer/main/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+                true}">Home</a>
+              <a class="nav-item nav-link two" routerLink="/customer/main/about"routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+                true}" >About</a>
+              <a class="nav-item nav-link two" routerLink="/customer/main/products"routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+                true}">ShopProducts</a>
             </div>
             <h6 class="nav-name">STUDENT NEEDS</h6>
             <div class="navbar-nav all">
-              <a class="nav-item nav-link one" href="#">Cart</a>
-              <a class="nav-item nav-link one" href="#">Checkout</a>
-              <a class="nav-item nav-link one" href="#">Contact</a>
+              <a *ngIf="!userIsAuthenticated" id="auth" class="nav-item nav-link one" routerLink="/login"routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+                true}">Login</a>
+              <a *ngIf="!userIsAuthenticated" id="auth"class="nav-item nav-link one" routerLink="/sign-up"routerLinkActive="active"[routerLinkActiveOptions]="{exact:
+                true}">SignUp</a>
+                <a *ngIf="userIsAuthenticated" class="nav-item nav-link one" routerLink="/customer/main/cart"routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+                  true}">Cart</a>
+                <a *ngIf="userIsAuthenticated" class="nav-item nav-link one" routerLink="/customer/main/order"routerLinkActive="active"[routerLinkActiveOptions]="{exact:
+                  true}">Checkout</a>
+              <a class="nav-item nav-link one" routerLink="/customer/main/product/all"routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+                true}">Contact</a>
               </div>
           </div>
         </nav>

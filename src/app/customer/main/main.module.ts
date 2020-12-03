@@ -11,10 +11,11 @@ import { ProductViewComponent } from './product-view/product-view.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { OrderComponent } from './order/order.component';
 import { OrderSuccessComponent } from './order-success/order-success.component';
+import { ProductCategoryComponent } from './product/product-category/product-category.component';
 
 
 @NgModule({
-  declarations: [MainComponent, LandingComponent, AboutComponent, ProductComponent, CartComponent, ProductViewComponent, CheckoutComponent, OrderComponent, OrderSuccessComponent],
+  declarations: [MainComponent, LandingComponent, AboutComponent, ProductComponent, CartComponent, ProductViewComponent, CheckoutComponent, OrderComponent, OrderSuccessComponent, ProductCategoryComponent],
   imports: [
     CommonModule,
     MainRoutingModule

@@ -6,9 +6,10 @@ import { AboutComponent } from '../main/about/about.component';
 import { ProductComponent } from '../main/product/product.component';
 import { CartComponent } from '../main/cart/cart.component';
 import { ProductViewComponent } from '../main/product-view/product-view.component';
-import {  CheckoutComponent } from '../main/checkout/checkout.component';
+import { CheckoutComponent } from '../main/checkout/checkout.component';
 import { OrderComponent } from '../main/order/order.component';
 import { OrderSuccessComponent } from '../main/order-success/order-success.component';
+import { ProductCategoryComponent } from './product/product-category/product-category.component';
 
 const routes: Routes = [
   {
@@ -16,13 +17,22 @@ const routes: Routes = [
     children: [
       { path: '', component: LandingComponent },
       { path: 'about', component: AboutComponent },
-      { path: 'product', component: ProductComponent },
+      {
+        path: 'products', component: ProductComponent,
+        children: [
+          { path: '', component: ProductCategoryComponent },
+          { path: ':category', component: ProductCategoryComponent }
+        ]
+      },
       { path: 'cart', component: CartComponent },
       { path: 'product/:slug', component: ProductViewComponent },
       { path: 'checkout', component: CheckoutComponent },
       { path: 'order', component: OrderComponent },
       { path: 'order-sucess', component: OrderSuccessComponent },
-
+      {
+        path: '**',
+        redirectTo: ''
+      }
     ]
   }];
 
