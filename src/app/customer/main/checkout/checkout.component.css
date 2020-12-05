@@ -143,12 +143,23 @@ margin-top:82;
     }
 
 .profileimg{
+    
+  
+    width: 14%;
+    height: 14%;
+    margin-top:46;
+    margin-left:44%;
+  
+}
+
+.image{
     border:1px solid #F3EDDD;
     border-radius:3px;
-    width: 100px;
-    height: 100px;
+    width: 13%;
+    height: 13%;
     margin-top:57;
-    margin-left:520;
+    margin-left:45%;
+    background: #F3EDDD;
 }
 
 .profileform{
@@ -270,14 +281,23 @@ color: #333333;
 margin-top:5;
     }
 
-.profileimg{
-    border:1px solid #F3EDDD;
-    border-radius:3px;
-    width: 100px;
-    height: 100px;
-    margin-top:57;
-    margin-left:70;
-}
+    .profileimg{
+        width: 14%;
+        height: 14%;
+        margin-top:39;
+        margin-left:40%;
+      
+    }
+    
+    .image{
+        border:1px solid #F3EDDD;
+        border-radius:3px;
+        width: 29%;
+        height: 13%;
+        margin-top:39;
+        margin-left:30%;
+        background: #F3EDDD;
+    }
 
 .profileform{
     margin-top:6%;

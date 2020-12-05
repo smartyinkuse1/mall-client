@@ -162,13 +162,25 @@ color: #333333;
     font-weight: bold;
     }
 
+   
 
 @media (max-width: 576px) {
   
     .secondone{
         margin-left:70%;
     font-family: Lato;
-font-style: normal;
+font-style: normal; .addy{
+        font-family: Lato;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 24px;
+        color: #333333;
+    }
+
+
+    .addyy{
+        margin-left:-69%;
+    }
 font-weight: 600;
 font-size: 15px;
 color: #333333;
@@ -358,6 +370,22 @@ color: #333333;
     margin-left:7%;
     width:20%;
     margin-top:2%;
+}
+.addy{
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    color: #333333;
+}
+
+
+.addyy{
+    margin-left:-72%;
+}
+
+.addyy,.addyy1{
+    width:30;
 }
 
 }

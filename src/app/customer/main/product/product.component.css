@@ -151,6 +151,13 @@ width:fit-content;
         margin-top:145;
     }
 
+    .pag{
+        border:none;
+    }
+    .pag li{
+        margin-left:2%;
+    }
+
     @media (max-width: 802px) {
        
     
