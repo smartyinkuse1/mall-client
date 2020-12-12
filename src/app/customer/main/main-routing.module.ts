@@ -28,7 +28,7 @@ const routes: Routes = [
       { path: 'product/:slug', component: ProductViewComponent },
       { path: 'checkout', component: CheckoutComponent },
       { path: 'order', component: OrderComponent },
-      { path: 'order-sucess', component: OrderSuccessComponent },
+      { path: 'order-success', component: OrderSuccessComponent },
       {
         path: '**',
         redirectTo: ''
