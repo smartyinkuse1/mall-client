@@ -4,20 +4,8 @@
       <div class="col-4 mt-5" *ngFor="let product of products">
         <img [src]="product?.mainImage" class="img12">
         <h6 class="h6two">{{product?.name}}</h6>
-        <h6 class="h6three">{{product?.price}}</h6>
-        <button class="btn3">ADD TO CART</button>
-      </div>
-      <div class="col-4 mt-5">
-        <img src="assets/shop product/Rectangle 7.png" class="img12">
-        <h6 class="h6two">Next Crop Top</h6>
-        <h6 class="h6three">N2,000</h6>
-        <button class="btn3">ADD TO CART</button>
-      </div>
-      <div class="col-4 mt-5">
-        <img src="assets/shop product/Rectangle 12.png" class="img12">
-        <h6 class="h6two">Pink Heels</h6>
-        <h6 class="h6three">N8,000</h6>
-        <button class="btn3">ADD TO CART</button>
+        <h6 class="h6three">{{product?.price| currency:'₦':'symbol-narrow'}}</h6>
+        <button class="btn3" (click)="addToCart(product, 1)">ADD TO CART</button>
       </div>
     </div>
 

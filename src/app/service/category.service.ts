@@ -12,4 +12,14 @@ export class CategoryService {
   getAllCategories() {
     return this.http.get(`${this.api}`)
   }
+  getCategoriesByPage(page, limit) {
+    return this.http.get(`${this.api}?page=${page}&limit=${limit}`)
+  }
+  updateCategory(id, value) {
+    return this.http.put<any>(`${this.api}${id}`, value)
+  }
+  addCategory(value) {
+    return this.http.post(`${this.api}`, value)
+  }
+
 }

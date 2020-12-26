@@ -24,4 +24,13 @@ export class ProductService {
   getProductsByPage(page, limit) {
     return this.http.get(`${this.api}?page=${page}&limit=${limit}`)
   }
+  getAllProducts() {
+    return this.http.get(`${this.api}`)
+  }
+  addProduct(value) {
+    return this.http.post(`${this.api}`, value)
+  }
+  updateProduct(slug, value) {
+    return this.http.put(`${this.api}${slug}`, value)
+  }
 }

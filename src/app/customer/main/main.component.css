@@ -50,6 +50,10 @@ border-radius: 2px;
     border-bottom:2.5px #1775A3 solid;
     border-radius: 2px;
 }
+#logout:hover {
+    border-bottom:2.5px red solid;
+    border-radius: 2px;
+}
 .active{
     border-bottom:2.5px #1775A3 solid;
     border-radius: 2px;

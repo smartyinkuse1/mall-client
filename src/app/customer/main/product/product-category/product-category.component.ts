@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { CategoryService } from 'src/app/service/category.service';
 import { ProductService } from 'src/app/service/product.service';
+import { CartService } from 'src/app/service/cart.service';
 
 @Component({
   selector: 'app-product-category',
@@ -10,7 +11,7 @@ import { ProductService } from 'src/app/service/product.service';
 })
 export class ProductCategoryComponent implements OnInit {
   category
-  constructor(public route: ActivatedRoute, public router: Router, private productsService: ProductService) { }
+  constructor(public route: ActivatedRoute, public router: Router, private productsService: ProductService, private cartService: CartService) { }
   products;
   page = 1
   limit = 18
@@ -33,6 +34,9 @@ export class ProductCategoryComponent implements OnInit {
         })
       }
     })
+  }
+  addToCart(details, quantity) {
+    this.cartService.addTocart(details,quantity)
   }
 
 }

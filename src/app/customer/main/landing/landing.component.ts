@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/app/service/category.service';
 import { ProductService } from 'src/app/service/product.service';
+import { CartService } from 'src/app/service/cart.service';
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
@@ -18,7 +19,7 @@ export class LandingComponent implements OnInit {
   productCat3;
   constructor(
     private categoryService: CategoryService,
-    private productService: ProductService) { }
+    private productService: ProductService, private cartService: CartService) { }
 
   ngOnInit(): void {
     this.getCategories()
@@ -56,5 +57,8 @@ export class LandingComponent implements OnInit {
         
       })
     })
+  }
+  addToCart(details, quantity) {
+    this.cartService.addTocart(details,quantity)
   }
 }

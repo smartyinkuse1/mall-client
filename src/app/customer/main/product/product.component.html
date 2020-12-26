@@ -45,25 +45,12 @@
     <div class="container">
       <div class="row smallrow1">
         <div class="col-4">
-          <h6 class="smalleveri">All</h6>
+          <h6 routerLink="/customer/main/products/" [ngClass]="{'cat-border': !pageCategory}">All</h6>
         </div>
-        <div class="col-4">
-          <h6 class="smalleveri">Clothes</h6>
+        <div class="col-4" *ngFor="let category of categories">
+          <h6 class="smalleveri" routerLink="/customer/main/products/{{category._id}}" [ngClass]="{'cat-border': category._id === pageCategory}">{{category?.name}}</h6>
         </div>
-        <div class="col-4">
-        <h6 class="smalleveri">Shoes</h6>
-        </div>
-      </div>
-      <div class="row smallrow2">
-        <div class="col-4">
-          <h6 class="smalleveri">Perfumes</h6>
-        </div>
-        <div class="col-4">
-           <h6 class="smalleveri">Lotion</h6>
-        </div>
-        <div class="col-4">
-           <h6 class="smalleveri">Accessories</h6>
-        </div>
+        
       </div>
     </div>
   </section>

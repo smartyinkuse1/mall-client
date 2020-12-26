@@ -17,6 +17,8 @@ export class LoginComponent implements OnInit {
       });
   }
   onLogin() {
+    console.log("hello");
+    
       if (this.form.invalid) {
           return;
       }

@@ -12,7 +12,21 @@
     margin-top:64;
     color:#F3EDDD;
 }
-
+.inp{
+    background: #F5F1E4;
+    box-shadow: 0px 4px 20px rgba(102, 102, 102, 0.1);
+    border-radius: 20px;
+    padding:5px;
+    width:90%;
+    outline:0;
+    border:0;
+}
+.inp::placeholder{
+    font-family: Lato;
+font-style: normal;
+font-weight: 500;
+color: #666666;
+}
 .student{
     font-family: Pacifico;
 font-style: normal;

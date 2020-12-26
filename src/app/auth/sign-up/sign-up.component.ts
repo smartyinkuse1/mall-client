@@ -16,16 +16,16 @@ export class SignUpComponent implements OnInit {
       name: new FormControl(null, { validators: [Validators.required, Validators.minLength(3)] }),
       email: new FormControl(null, { validators: [Validators.required, Validators.minLength(3)] }),
       Password: new FormControl(null, { validators: [Validators.required, Validators.minLength(6)] }),
-      cPassword: new FormControl(null, { validators: [Validators.required, Validators.minLength(6)] })
+      // cPassword: new FormControl(null, { validators: [Validators.required, Validators.minLength(6)] })
     });
   }
   onRegister() {
     if (this.form.invalid) {
-      return;
+      return this.toastr.error("Fields are required")
     }
-    if (this.form.value.Password !== this.form.value.cPassword) {
-      return this.toastr.error("Password don't match")
-    }
+    // if (this.form.value.Password !== this.form.value.cPassword) {
+    //   return this.toastr.error("Password don't match")
+    // }
     this.authService.register(this.form.value.name, this.form.value.email, this.form.value.Password)
     // this.authService.login(this.form.value.Username, this.form.value.Password);
   }

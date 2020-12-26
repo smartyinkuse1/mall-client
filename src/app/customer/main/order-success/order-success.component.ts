@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { OrderService } from 'src/app/service/order.service';
 
 @Component({
   selector: 'app-order-success',
@@ -6,10 +8,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./order-success.component.css']
 })
 export class OrderSuccessComponent implements OnInit {
-
-  constructor() { }
+  orderId
+  order
+  constructor(public route: ActivatedRoute, public router: Router, private orderService: OrderService) { }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe((paramMap: ParamMap) => {
+      if (paramMap.has('id')) {
+        this.orderId = paramMap.get('id')
+        console.log(this.orderId);
+        this.orderService.getOrdersById(this.orderId).subscribe((res:any)=>{
+          console.log(res);
+          
+          this.order = res.data
+        })
+        
+      }
+    })
+  }
+  getTotalPrice(products) {
+    if (products) {
+      let productTotal = 0
+      products.forEach(element => {
+          productTotal += (element.price * element.quantity)
+      });
+      return productTotal
+      
+    }
   }
 
 }

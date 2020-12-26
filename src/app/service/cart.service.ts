@@ -12,42 +12,45 @@ export class CartService {
   cart: Array<any> = []
   duplicates: number = 0
   cartTotal: number = 0;
-  cartUpdate: BehaviorSubject<{ cartUpdate: boolean}> = new BehaviorSubject<{ cartUpdate: boolean}>({ cartUpdate: false })
+  cartUpdate: BehaviorSubject<{ cartUpdate: boolean }> = new BehaviorSubject<{ cartUpdate: boolean }>({ cartUpdate: false })
   api = environment.api + 'auth/'
-  constructor(private http: HttpClient, private router: Router,private toastr: ToastrService) { }
+  constructor(private http: HttpClient, private router: Router, private toastr: ToastrService) { }
   addTocart(productDetails, quantity) {
     console.log(this.cart);
-    
-    this.duplicates = 0 
-    if(sessionStorage.getItem('cart')) {
+
+    this.duplicates = 0
+    if (sessionStorage.getItem('cart')) {
       this.cart = JSON.parse(sessionStorage.getItem('cart'))
     }
-    if(this.cart.length > 0){
+    if (this.cart.length > 0) {
       for (let index = 0; index < this.cart.length; index++) {
-        if(this.cart[index].id == productDetails.id){
+        if (this.cart[index]._id == productDetails._id) {
           this.cart[index].quantity = +this.cart[index].quantity + quantity;
           this.duplicates++
+          this.toastr.success("Item Added Successfully")
         }
-        if(index == this.cart.length -1){
-          if(this.duplicates == 0){
+        if (index == this.cart.length - 1) {
+          if (this.duplicates == 0) {
             productDetails.quantity = quantity
             this.cart.push(productDetails)
+            this.toastr.success("Item Added Successfully")
             this.cartSubmission();
             return
-          } else{
+          } else {
             this.cartSubmission();
           }
         }
-        
+
       }
     } else {
-    productDetails.quantity = quantity
-    this.cart.push(productDetails)
+      productDetails.quantity = quantity
+      this.cart.push(productDetails)
+      this.toastr.success("Item Added Successfully")
       this.cartSubmission();
     }
-    setTimeout(() => {
-      this.toastr.success("Item Added Successfully")
-    }, 100);
+    // setTimeout(() => {
+    //   this.toastr.success("Item Added Successfully")
+    // }, 100);
   }
   removeFromCart(index) {
     this.cart = JSON.parse(sessionStorage.getItem('cart'));
@@ -58,9 +61,9 @@ export class CartService {
   reduceQuantity(productDetails, quantity) {
     this.cart = JSON.parse(sessionStorage.getItem('cart'));
     for (let index = 0; index < this.cart.length; index++) {
-      if(this.cart[index].quantity <= 1){
+      if (this.cart[index].quantity <= 1) {
         this.removeFromCart(productDetails)
-      } 
+      }
       if (this.cart[index].id == productDetails.id) {
         this.cart[index].quantity = +this.cart[index].quantity - quantity;
       }
@@ -80,9 +83,9 @@ export class CartService {
       }
     }
   }
-  cartSubmission(){
+  cartSubmission() {
     this.cartTotal = 0;
-    this.cart.forEach(element=>{
+    this.cart.forEach(element => {
       this.cartTotal = this.cartTotal + (+element.price * element.quantity)
     })
     sessionStorage.setItem('cart', JSON.stringify(this.cart));

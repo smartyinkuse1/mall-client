@@ -12,7 +12,23 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     const isAuth = this.authService.getAuth();
     if (!isAuth) {
-      this.router.navigate(['/auth/login']);
+      this.router.navigate(['/login']);
+    }
+    return true;
+  }
+
+}
+@Injectable({
+  providedIn: 'root'
+})
+export class AdminAuthGuard implements CanActivate {
+  constructor(private authService: AuthService, public router: Router) { }
+  canActivate(
+    next: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    const isAuth = this.authService.getAdminAuth();
+    if (!isAuth) {
+      this.router.navigate(['/login']);
     }
     return true;
   }

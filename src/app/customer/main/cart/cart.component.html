@@ -1,239 +1,119 @@
 <section class="cart">
     <h5 class="shopping">Shopping Cart</h5>
     <div class="container">
-    <div class="row" style="width:100%;">
-        <div class="col-3">
-            <p class="allitems">Item</p>
+        <div class="row" style="width:100%;">
+            <div class="col-3">
+                <p class="allitems">Item</p>
+            </div>
+            <div class="col-2">
+                <p class="allitems">Size</p>
+            </div>
+            <div class="col-2">
+                <p class="allitems">Quantity</p>
+            </div>
+            <div class="col-2">
+                <p class="allitems">Price</p>
+            </div>
+            <div class="col-2">
+                <p class="allitems">Total</p>
+            </div>
+            <div class="col-1">
+
+            </div>
+
         </div>
-        <div class="col-2">
-            <p class="allitems">Size</p>
-        </div>
-        <div class="col-2">
-            <p class="allitems">Quantity</p>
-        </div>
-        <div class="col-2">
-            <p class="allitems">Price</p>
-        </div>
-        <div class="col-2">
-            <p class="allitems">Total</p>
-        </div>
-        <div class="col-1">
-         
-        </div>
-      
-    </div> 
     </div>
-    
-    <div class="container">
+
+    <div class="container" *ngFor="let cart of carts">
         <div class="row allrow" style="width:100%;">
             <div class="col-3">
                 <div class="row">
                     <div class="col-4">
-                        <img src="assets/shop product/cartshoe.png" class="imgcart">
+                        <img [src]="cart?.mainImage" class="imgcart">
                     </div>
                     <div class="col-8">
-                        <p class="highboot">High Boots</p>
+                        <p class="highboot">{{cart?.name}}</p>
                     </div>
                 </div>
             </div>
             <div class="col-2">
-                <p class="highboot">42</p>
+                <p class="highboot">{{cart?.size}}</p>
             </div>
             <div class="col-2">
                 <div class="row">
                     <div class="col-4">
-                      <img src="assets/shop product/Group 64.png" class="oney">
+                        <img (click)="deceaseQuantity(cart)" src="assets/shop product/Group 64.png" class="oney">
                     </div>
                     <div class="col-4">
-                      <p class="py">2</p> 
+                        <p class="py">{{cart?.quantity}}</p>
                     </div>
                     <div class="col-4">
-                        <img src="assets/shop product/Group 65.png" class="twoy">
+                        <img (click)="increaseQuantity(cart)" src="assets/shop product/Group 65.png" class="twoy">
                     </div>
                 </div>
             </div>
             <div class="col-2">
-                <p class="highboot">N10,000</p>
+                <p class="highboot">{{cart?.price | currency:'₦':'symbol-narrow'}}</p>
             </div>
             <div class="col-2">
-                <p class="highbootprice">N20,000</p>
+                <p class="highbootprice">{{cart?.price * cart?.quantity | currency:'₦':'symbol-narrow'}}</p>
             </div>
-           
-             <div class="col-1">
-                <img src="assets/shop product/exit.png" class="exit">
-              </div>
-        </div> 
-        
+
+            <div class="col-1">
+                <img src="assets/shop product/exit.png" (click)="removeItem()" class="exit">
+            </div>
         </div>
+
+    </div>
+
+
     
-    
-        <div class="container">
-            <div class="row allrow" style="width:100%;">
-                <div class="col-3">
-                    <div class="row">
-                        <div class="col-4">
-                            <img src="assets/shop product/cartshoe2.png" class="imgcart">
-                        </div>
-                        <div class="col-8">
-                            <p class="highboot">Brown Flats</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-2">
-                    <p class="highboot">42</p>
-                </div>
-                <div class="col-2">
-                    <div class="row">
-                    <div class="col-4">
-                        <img src="assets/shop product/Group 64.png" class="oney">
-                      </div>
-                      <div class="col-4">
-                        <p class="py">1</p> 
-                      </div>
-                      <div class="col-4">
-                          <img src="assets/shop product/Group 65.png" class="twoy">
-                      </div>
-                      </div>
-                </div>
-                <div class="col-2">
-                    <p class="highboot">N4,000</p>
-                </div>
-                <div class="col-2">
-                    <p class="highbootprice">N4,000</p>
-                </div>
-                <div class="col-1">
-                    <img src="assets/shop product/exit.png" class="exit">
-                 </div>
-            </div> 
+
+
+    <div class="container">
+        <div class="row" style="width:100%;">
+            <div class="col-4">
+
             </div>
-    
-    
-            <div class="container">
-                <div class="row allrow" style="width:100%;">
-                    <div class="col-3">
-                        <div class="row">
-                            <div class="col-4">
-                                <img src="assets/shop product/cartglass.png" class="imgcart">
-                            </div>
-                            <div class="col-8">
-                                <p class="highboot">Transparent Eye glasses</p>
-                            </div>
-                        </div>
+            <div class="col-2">
+
+            </div>
+            <div class="col-2">
+
+            </div>
+            <div class="col-2">
+                <p class="highboot">Total</p>
+            </div>
+            <div class="col-2">
+                <p class="highbootprice">{{overallTotal | currency:'₦':'symbol-narrow'}}</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container mt-5">
+        <div class="row" style="width:100%;">
+            <div class="col-6">
+
+            </div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-6">
+                        <p class="continue" routerLink="/customer/main/">Continue Shopping</p>
                     </div>
-                    <div class="col-2">
-                        <p class="highboot">-</p>
+                    <div class="col-6">
+                        <button class="btn4" routerLink="/customer/main/order">GO TO CHECKOUT</button>
                     </div>
-                    <div class="col-2">
-                        <div class="row">
-                            <div class="col-4">
-                                <img src="assets/shop product/Group 64.png" class="oney">
-                              </div>
-                              <div class="col-4">
-                                <p class="py">1</p> 
-                              </div>
-                              <div class="col-4">
-                                  <img src="assets/shop product/Group 65.png" class="twoy">
-                              </div>
-                              </div>
-                    </div>
-                    <div class="col-2">
-                        <p class="highboot">N6,000</p>
-                    </div>
-                    <div class="col-2">
-                        <p class="highbootprice">N6,000</p>
-                    </div>
-                    <div class="col-1">
-                        <img src="assets/shop product/exit.png" class="exit">
-                     </div>
-                </div> 
+
                 </div>
-    
-    
-                <div class="container">
-                    <div class="row allrow" style="width:100%;">
-                        <div class="col-3">
-                            <div class="row">
-                                <div class="col-4">
-                                    <img src="assets/shop product/cartperfume.png" class="imgcart">
-                                </div>
-                                <div class="col-8">
-                                    <p class="highboot">Coco Chanel</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-2">
-                            <p class="highboot">-</p>
-                        </div>
-                        <div class="col-2">
-                            <div class="row">
-                                <div class="col-4">
-                                    <img src="assets/shop product/Group 64.png" class="oney">
-                                  </div>
-                                  <div class="col-4">
-                                    <p class="py">2</p> 
-                                  </div>
-                                  <div class="col-4">
-                                      <img src="assets/shop product/Group 65.png" class="twoy">
-                                  </div>
-                                  </div>
-                        </div>
-                        <div class="col-2">
-                            <p class="highboot">N14,000</p>
-                        </div>
-                        <div class="col-2">
-                            <p class="highbootprice">N28,000</p>
-                        </div>
-                        <div class="col-1">
-                            <img src="assets/shop product/exit.png" class="exit">
-                         </div>
-                    </div> 
-                    </div>
-    
-    
-                    <div class="container">
-                        <div class="row" style="width:100%;">
-                            <div class="col-4">
-                               
-                            </div>
-                            <div class="col-2">
-                                
-                            </div>
-                            <div class="col-2">
-                               
-                            </div>
-                            <div class="col-2">
-                                <p class="highboot">Total</p>
-                            </div>
-                            <div class="col-2">
-                                <p class="highbootprice">N28,000</p>
-                            </div>
-                        </div> 
-                        </div>
-    
-    
-                        <div class="container">
-                            <div class="row" style="width:100%;">
-                                <div class="col-6">
-                                   
-                                </div>
-                            <div class="col-6">
-                                <div class="row">
-                                <div class="col-6">
-                                    <p class="continue">Continue Shopping</p>
-                                </div>
-                                <div class="col-6">
-                                    <button class="btn4">GO TO CHECKOUT</button>
-                                </div>
-    
-                            </div>
-                               </div> 
-    
-    
-                            </div> 
-                            </div>
-    
-    
-    
-    </section>
-    
-    <p class="overall"></p>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+</section>
+
+<p class="overall"></p>

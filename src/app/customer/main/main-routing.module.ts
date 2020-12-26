@@ -10,6 +10,8 @@ import { CheckoutComponent } from '../main/checkout/checkout.component';
 import { OrderComponent } from '../main/order/order.component';
 import { OrderSuccessComponent } from '../main/order-success/order-success.component';
 import { ProductCategoryComponent } from './product/product-category/product-category.component';
+import { AuthGuard } from 'src/app/auth/auth.guard';
+import { OrderPageComponent } from './order-page/order-page.component';
 
 const routes: Routes = [
   {
@@ -26,9 +28,10 @@ const routes: Routes = [
       },
       { path: 'cart', component: CartComponent },
       { path: 'product/:slug', component: ProductViewComponent },
-      { path: 'checkout', component: CheckoutComponent },
-      { path: 'order', component: OrderComponent },
-      { path: 'order-success', component: OrderSuccessComponent },
+      { path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuard] },
+      { path: 'order', component: OrderComponent, canActivate: [AuthGuard] },
+      { path: 'order-success/:id', component: OrderSuccessComponent, canActivate: [AuthGuard] },
+      { path: 'order-page', component: OrderPageComponent, canActivate: [AuthGuard] },
       {
         path: '**',
         redirectTo: ''

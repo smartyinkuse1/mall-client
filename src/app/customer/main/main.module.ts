@@ -12,13 +12,18 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { OrderComponent } from './order/order.component';
 import { OrderSuccessComponent } from './order-success/order-success.component';
 import { ProductCategoryComponent } from './product/product-category/product-category.component';
+import { Angular4PaystackModule } from 'angular4-paystack';
+import { FormsModule } from '@angular/forms';
+import { OrderPageComponent } from './order-page/order-page.component';
 
 
 @NgModule({
-  declarations: [MainComponent, LandingComponent, AboutComponent, ProductComponent, CartComponent, ProductViewComponent, CheckoutComponent, OrderComponent, OrderSuccessComponent, ProductCategoryComponent],
+  declarations: [MainComponent, LandingComponent, AboutComponent, ProductComponent, CartComponent, ProductViewComponent, CheckoutComponent, OrderComponent, OrderSuccessComponent, ProductCategoryComponent, OrderPageComponent],
   imports: [
     CommonModule,
-    MainRoutingModule
+    FormsModule,
+    MainRoutingModule,
+    Angular4PaystackModule.forRoot('pk_test_bc9d400332e0dfb3791e43bbf11f66b7fd102fc8'),
   ]
 })
 export class MainModule { }

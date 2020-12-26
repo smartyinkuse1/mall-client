@@ -8,20 +8,21 @@ import { CategoryComponent } from './category/category.component';
 import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
-  {path: '', component: MainComponent,
-  children: [
-    {path: '', component: DashboardComponent},
-    {path: 'product', component: ProductComponent},
-    {path: 'order', component: OrderComponent},
-    {path: 'category', component: CategoryComponent},
-    {path: 'user', component: UserComponent},
-    {
-      path: '**',
-      redirectTo: ''
-    }
-  ],
+  {
+    path: '', component: MainComponent,
+    children: [
+      { path: '', component: DashboardComponent },
+      { path: 'product', component: ProductComponent },
+      { path: 'order', component: OrderComponent },
+      { path: 'category', component: CategoryComponent },
+      { path: 'user', component: UserComponent },
+      {
+        path: '**',
+        redirectTo: ''
+      }
+    ],
 
-}
+  }
 ];
 
 @NgModule({

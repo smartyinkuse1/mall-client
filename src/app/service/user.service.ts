@@ -12,4 +12,13 @@ export class UserService {
   getUserById(id) {
     return this.http.get(`${this.api}${id}`)
   }
+  updateUser(id, value) {
+    return this.http.put<any>(`${this.api}${id}`, value)
+  }
+  getAllUsers() {
+    return this.http.get(`${this.api}`)
+  }
+  getUsersByPage(page, limit) {
+    return this.http.get(`${this.api}?page=${page}&limit=${limit}`)
+  }
 }

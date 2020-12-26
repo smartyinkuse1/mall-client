@@ -8,13 +8,17 @@ import { ProductComponent } from './product/product.component';
 import { CategoryComponent } from './category/category.component';
 import { UserComponent } from './user/user.component';
 import { OrderComponent } from './order/order.component';
+import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
   declarations: [MainComponent, DashboardComponent, ProductComponent, CategoryComponent, UserComponent, OrderComponent],
   imports: [
     CommonModule,
-    MainRoutingModule
+    FormsModule,
+    MainRoutingModule,
+    NgbModule
   ]
 })
 export class MainModule { }

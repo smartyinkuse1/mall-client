@@ -170,7 +170,7 @@ color: #333333;
   }
 
   .highboot1{
-    margin-top:127;
+    /* margin-top:127; */
     font-family: Lato;
 font-style: normal;
 font-weight: normal;
@@ -190,7 +190,7 @@ color: #333333;
 }
 
 .highbootprice1{
-    margin-top:127;
+    /* margin-top:127; */
     font-family: Lato;
 font-style: normal;
 font-weight: bold;
