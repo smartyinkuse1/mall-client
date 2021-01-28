@@ -12,7 +12,7 @@
       </div>
     </div>
   </section>
-  
+
   <section class="smallfour" style="background: #D9DCF8;width:100%;">
     <div class="row smallrowfour" style="width:100%;background: #D9DCF8;">
       <div class="col-3">
@@ -30,7 +30,7 @@
 
   <section id="one" style="width:100%;">
     <div class="container">
-      <div class="row row1" style="width:100%;">  
+      <div class="row row1" style="width:100%;">
         <div class="col-2">
           <a routerLink="/customer/main/products/"><h6 class="everi" [ngClass]="{'cat-border': !pageCategory}">All</h6> </a>
         </div>
@@ -50,7 +50,7 @@
         <div class="col-4" *ngFor="let category of categories">
           <h6 class="smalleveri" routerLink="/customer/main/products/{{category._id}}" [ngClass]="{'cat-border': category._id === pageCategory}">{{category?.name}}</h6>
         </div>
-        
+
       </div>
     </div>
   </section>
@@ -59,15 +59,4 @@
   <router-outlet></router-outlet>
 
 
-  <section id="two">
-    <div class="container">
 
-    <ul class="pagination pagination pag">
-      <li><a href="#"><img src="assets/shop product/Ellipse 4.png"></a></li>
-      <li><a href="#"><img src="assets/shop product/Ellipse 50.png"></a></li>
-      <li><a href="#"><img src="assets/shop product/Ellipse 50.png"></a></li>
-    
-    </ul>
-    <p class="last"></p>
-    </div>
-  </section>

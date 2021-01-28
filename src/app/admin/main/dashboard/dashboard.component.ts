@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
   constructor(private productsService: ProductService,
     private categoriesService: CategoryService,
     private userService: UserService,
-    private orderService: OrderService) { 
+    private orderService: OrderService) {
   }
 
   ngOnInit(): void {
@@ -27,7 +27,7 @@ export class DashboardComponent implements OnInit {
     this.getOrders()
   }
   getProducts() {
-    this.productsService.getAllProducts().subscribe((res:any)=>{
+    this.productsService.adminGetAllProducts().subscribe((res:any)=>{
       this.products = res.data
     })
   }
@@ -44,6 +44,8 @@ export class DashboardComponent implements OnInit {
   getOrders() {
     this.orderService.getOrders().subscribe((res:any)=>{
       this.orders = res.data
+      console.log(this.orders);
+
     })
   }
 }

@@ -100,13 +100,13 @@
   <div class="container">
     <h5 class="h5one">Featured Products</h5>
     <h6 class="h6one">{{category1?.name}}</h6>
-    <div class="row" style="margin-top:3%;width:100%;">
-        <div class="col-4 btnimg">
-          <img [src]="productCat1?.mainImage" class="img3">
+    <div  class="row" style="margin-top:3%;width:100%;">
+        <div  class="col-4 btnimg">
+          <img  [src]="productCat1?.mainImage" class="img3">
           <button class="btn2" routerLink="/customer/main/products/{{category1?._id}}">SHOP NOW</button>
         </div>
-      <div class="col-4" *ngFor="let product of landingCategories[category1?.name]?.slice(1)">
-        <img [src]="product?.mainImage" class="img4">
+      <div class="col-4" *ngFor="let product of landingCategories[category1?.name]?.slice(1)" >
+        <img routerLink="/customer/main/product/{{product?.slug}}" [src]="product?.mainImage" class="img4">
         <h6 class="h6two">{{product?.name}}</h6>
         <h6 class="h6three">{{product?.price | currency:'₦':'symbol-narrow'}}</h6>
         <button class="btn3" (click)="addToCart(product, 1)">ADD TO CART</button>
@@ -145,8 +145,8 @@
         <img [src]="productCat3?.mainImage" class="img3">
         <button class="btn2" routerLink="/customer/main/products">SHOP NOW</button>
       </div>
-      <div class="col-4" *ngFor="let product of otherProducts?.slice(1)">
-        <img [src]="product?.mainImage" class="img4">
+      <div class="col-4" *ngFor="let product of otherProducts?.slice(1)" >
+        <img routerLink="/customer/main/product/{{product?.slug}}" [src]="product?.mainImage" class="img4">
         <h6 class="h6two">{{product?.name}}</h6>
         <h6 class="h6three">{{product?.price | currency:'₦':'symbol-narrow'}}</h6>
         <button class="btn3" (click)="addToCart(product, 1)">ADD TO CART</button>
@@ -168,13 +168,13 @@
     <img [src]="productCat1?.mainImage" class="img7">
     <button class="btn5" routerLink="/customer/main/products/{{category1?._id}}">SHOP NOW</button>
     <div class="row" style="width:100%;">
-      <div class="col-6" *ngFor="let product of landingCategories[category1?.name]?.slice(1)">
-        <img [src]="product?.mainImage" class="img8">
+      <div class="col-6" *ngFor="let product of landingCategories[category1?.name]?.slice(1)" >
+        <img routerLink="/customer/main/product/{{product?.slug}}" [src]="product?.mainImage" class="img8">
         <h6 class="h6seven">{{product?.name}}</h6>
         <h6 class="h6eight">{{product?.price | currency:'₦':'symbol-narrow'}}</h6>
         <button class="btn6" (click)="addToCart(product, 1)">ADD TO CART</button>
       </div>
-      
+
     </div>
 
     <h6 class="h6nine">{{category2?.name}}</h6>
@@ -182,7 +182,7 @@
     <button class="btn5" routerLink="/customer/main/products/{{category2?._id}}">SHOP NOW</button>
     <div class="row" style="width:100%;">
       <div class="col-6" *ngFor="let product of landingCategories[category2?.name]?.slice(0,2)">
-        <img src="assets/images/Rectangle 151.png" class="img8">
+        <img routerLink="/customer/main/product/{{product?.slug}}" src="assets/images/Rectangle 151.png" class="img8">
         <h6 class="h6seven">{{product?.name}}</h6>
         <h6 class="h6eight">{{product?.}</h6>
         <button class="btn6" (click)="addToCart(product, 1)">ADD TO CART</button>
@@ -194,7 +194,7 @@
     <button class="btn5" routerLink="/customer/main/products">SHOP NOW</button>
     <div class="row" style="width:100%;">
       <div class="col-6" *ngFor="let product of otherProducts?.slice(1)">
-        <img [src]="product?.mainImage" class="img8">
+        <img routerLink="/customer/main/product/{{product?.slug}}"  [src]="product?.mainImage" class="img8">
         <h6 class="h6seven">{{product?.name}}</h6>
         <h6 class="h6eight">{{product?.price | currency:'₦':'symbol-narrow'}}</h6>
         <button class="btn6" (click)="addToCart(product, 1)">ADD TO CART</button>

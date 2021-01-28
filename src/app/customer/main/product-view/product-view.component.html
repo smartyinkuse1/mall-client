@@ -2,59 +2,59 @@
     <div class="container">
       <div class="row" style="width:100%;">
         <div class="col-6">
-          <img src="assets/shop product/Rectangle 72.png" class="img1">
+          <img [src]="product?.mainImage" class="img1">
         </div>
-    
+
         <div class="col-6">
-          <p class="jimmy">Jimmy CHOO</p>
-          <h6 class="high">High Boots</h6>
-          <h6 class="money">N10,000</h6>
-          <p class="designed">Designed for simplicity and made from high quality materials. It is very comfortable.</p>
-          <input type="text" value="size">
+          <p class="jimmy"></p>
+          <h6 class="high">{{product?.name}}</h6>
+          <h6 class="money">{{product?.price}}</h6>
+          <p class="designed">{{product?.description}}</p>
+          <input type="text" [value]="product?.size">
           <h6 class="quantity">Quantity</h6>
           <div class="row">
             <div class="col-1">
-              <img src="assets/shop product/Group 65.png">
+              <img (click)="decreaseQuantity()" src="assets/shop product/Group 64.png">
             </div>
             <div class="col-1">
-              <p class="addy">1</p>
+              <p class="addy">{{quantity}}</p>
             </div>
             <div class="col-1">
-              <img src="assets/shop product/Group 64.png" class="addyy">
+              <img (click)="increaseQuantity()" src="assets/shop product/Group 65.png" class="addyy">
             </div>
           </div>
-        
+
           <br />
-          <button class="btn1">ADD TO CART</button>
+          <button (click)="addToCart(product)" class="btn1">ADD TO CART</button>
         </div>
-    
+
       </div>
     </div>
     </section>
-    
+
     <section id="second">
        <img src="assets/shop product/Rectangle 72.png" class="img1">
-       
-       <p class="jimmy">Jimmy CHOO</p>
-          <h6 class="high">High Boots</h6>
-          <h6 class="money">N10,000</h6>
-          <p class="designed">Designed for simplicity and made from high quality materials. It is very comfortable.</p>
-          <input type="text" value="size">
+
+       <p class="jimmy"></p>
+          <h6 class="high">{{product?.name}}</h6>
+          <h6 class="money">{{product?.price}}</h6>
+          <p class="designed">{{product?.description}}</p>
+          <input type="text" [value]="product?.size">
           <h6 class="quantity">Quantity</h6>
           <div class="row" style="width:100%;margin-left:5%;">
             <div class="col-1">
-              <img src="assets/shop product/Group 65.png" class="addyy1">
+              <img (click)="decreaseQuantity()" src="assets/shop product/Group 64.png" class="addyy1">
             </div>
             <div class="col-1">
-              <p class="addy">1</p>
+              <p class="addy">{{quantity}}</p>
             </div>
             <div class="col-1">
-              <img src="assets/shop product/Group 64.png" class="addyy">
+              <img (click)="increaseQuantity()" src="assets/shop product/Group 65.png" class="addyy">
             </div>
           </div>
-          <button class="btn1">ADD TO CART</button>
+          <button (click)="addToCart(product)" class="btn1">ADD TO CART</button>
     </section>
-    
+
     <section id="third">
     <div class="container">
       <p class="reviews">Reviews</p>
@@ -68,39 +68,25 @@
       </div>
     </div>
     </section>
-    
+
     <section id="smallthird">
       <div class="container">
         <p class="reviews">Reviews</p>
         <img src="assets/shop product/Group 51.png" class="reviewimg">
         <img src="assets/shop product/Group 52.png" class="reviewimg">
-    
+
       </div>
     </section>
-    
-    
+
+
     <div class="container">
       <p class="similar">Similar Products</p>
       <div class="row bigrow" style="width:100%;">
-        <div class="col-4">
-          <img src="assets/shop product/Rectangle 132.png" class="img12">
-              <h6 class="h6two">Yellow Flats</h6>
-              <h6 class="h6three">N4,000</h6>
-              <button class="btn3">ADD TO CART</button>
-        </div>
-    
-        <div class="col-4">
-          <img src="assets/shop product/Rectangle 172.png" class="img12">
-          <h6 class="h6two">RAID FlatsCoco Chanel</h6>
-          <h6 class="h6three">N5,000</h6>
-          <button class="btn3">ADD TO CART</button>
-        </div>
-    
-        <div class="col-4">
-          <img src="assets/shop product/Rectangle 182.png" class="img12">
-          <h6 class="h6two">Brown Flats</h6>
-          <h6 class="h6three">N4,000</h6>
-          <button class="btn3">ADD TO CART</button>
+        <div *ngFor="let product of categoryProducts" class="col-4" routerLink="/customer/main/product/{{product?.slug}}">
+          <img [src]="product?.mainImage" class="img12">
+              <h6 class="h6two">{{product?.name}}</h6>
+              <h6 class="h6three">{{product?.price}}</h6>
+              <button (click)="addToCart(product, 1)" class="btn3">ADD TO CART</button>
         </div>
       </div>
     </div>

@@ -10,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class SignUpComponent implements OnInit {
   form: FormGroup;
+  fieldTextType: boolean;
   constructor(public authService: AuthService, private toastr:ToastrService) { }
   ngOnInit() {
     this.form = new FormGroup({
@@ -28,5 +29,8 @@ export class SignUpComponent implements OnInit {
     // }
     this.authService.register(this.form.value.name, this.form.value.email, this.form.value.Password)
     // this.authService.login(this.form.value.Username, this.form.value.Password);
+  }
+  toggleFieldTextType() {
+    this.fieldTextType = !this.fieldTextType;
   }
 }

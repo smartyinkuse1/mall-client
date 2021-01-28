@@ -64,7 +64,7 @@ export class CartService {
       if (this.cart[index].quantity <= 1) {
         this.removeFromCart(productDetails)
       }
-      if (this.cart[index].id == productDetails.id) {
+      if (this.cart[index]._id == productDetails._id) {
         this.cart[index].quantity = +this.cart[index].quantity - quantity;
       }
       if (index == this.cart.length - 1) {
@@ -75,7 +75,7 @@ export class CartService {
   increaseQuantity(productDetails, quantity) {
     this.cart = JSON.parse(sessionStorage.getItem('cart'));
     for (let index = 0; index < this.cart.length; index++) {
-      if (this.cart[index].id == productDetails.id) {
+      if (this.cart[index]._id == productDetails._id) {
         this.cart[index].quantity = +this.cart[index].quantity + quantity;
       }
       if (index == this.cart.length - 1) {

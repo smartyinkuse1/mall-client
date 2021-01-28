@@ -29,7 +29,7 @@ export class ProductComponent implements OnInit {
     this.getCategories()
   }
   getProductsByPage(page, limit) {
-    this.productsService.getProductsByPage(page, limit).subscribe((res: any) => {
+    this.productsService.adminGetProductsByPage(page, limit).subscribe((res: any) => {
       console.log(res);
       this.products = res.data
       this.prev = res.pagination.prev
@@ -53,6 +53,7 @@ export class ProductComponent implements OnInit {
     value.append('size', form.value.size)
     value.append('description', form.value.description)
     value.append('price', form.value.price)
+    value.append('quantities', form.value.quantities)
     value.append('category', form.value.category)
     value.append('image', this.file)
     console.log(value);

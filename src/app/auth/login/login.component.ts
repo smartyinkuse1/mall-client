@@ -9,6 +9,7 @@ import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   form: FormGroup;
+  fieldTextType: boolean;
   constructor(public authService: AuthService) {}
   ngOnInit() {
       this.form = new FormGroup({
@@ -18,10 +19,13 @@ export class LoginComponent implements OnInit {
   }
   onLogin() {
     console.log("hello");
-    
+
       if (this.form.invalid) {
           return;
       }
       this.authService.login(this.form.value.email, this.form.value.Password);
+  }
+  toggleFieldTextType() {
+    this.fieldTextType = !this.fieldTextType;
   }
 }
