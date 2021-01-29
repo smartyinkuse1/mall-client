@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row row1" style="width:100%;">
       <div class="col-4 mt-5" *ngFor="let product of products">
-        <img [src]="product?.mainImage" class="img12">
+        <img routerLink="/customer/main/product/{{product?.slug}}" [src]="product?.mainImage" class="img12">
         <h6 class="h6two">{{product?.name}}</h6>
         <h6 class="h6three">{{product?.price| currency:'₦':'symbol-narrow'}}</h6>
         <button class="btn3" (click)="addToCart(product, 1)">ADD TO CART</button>

@@ -29,7 +29,7 @@
             <div class="col-3">
                 <div class="row">
                     <div class="col-4">
-                        <img [src]="cart?.mainImage" class="imgcart">
+                        <img routerLink="/customer/main/product/{{cart?.slug}}" [src]="cart?.mainImage" class="imgcart">
                     </div>
                     <div class="col-8">
                         <p class="highboot">{{cart?.name}}</p>
@@ -67,7 +67,7 @@
     </div>
 
 
-    
+
 
 
     <div class="container">

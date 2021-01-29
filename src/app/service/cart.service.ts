@@ -25,6 +25,9 @@ export class CartService {
     if (this.cart.length > 0) {
       for (let index = 0; index < this.cart.length; index++) {
         if (this.cart[index]._id == productDetails._id) {
+          if (this.cart[index].quantity + quantity >= productDetails.quantities) {
+            return
+          }
           this.cart[index].quantity = +this.cart[index].quantity + quantity;
           this.duplicates++
           this.toastr.success("Item Added Successfully")
@@ -76,6 +79,9 @@ export class CartService {
     this.cart = JSON.parse(sessionStorage.getItem('cart'));
     for (let index = 0; index < this.cart.length; index++) {
       if (this.cart[index]._id == productDetails._id) {
+        if (this.cart[index].quantity >= productDetails.quantities) {
+          return
+        }
         this.cart[index].quantity = +this.cart[index].quantity + quantity;
       }
       if (index == this.cart.length - 1) {

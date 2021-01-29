@@ -45,6 +45,9 @@ export class ProductViewComponent implements OnInit {
     }
   }
   increaseQuantity() {
+    if (this.quantity >= this.product.quantities) {
+      return
+    }
     this.quantity++
   }
   decreaseQuantity() {
